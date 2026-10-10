@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffe89a">
+  <meta name="description" content="Fanatik99 — platform pilihan untuk penggemar game fanatik.">
+  <title>Fanatik99 — Platform Pilihan Penggemar Game</title>
+  <style>
+    :root {
+      --gold: #ffdf4f;
+      --gold-light: #ffe995;
+      --blue: #0877e8;
+      --ink: #050505;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 0 14px 30px;
+      color: white;
+      background:
+        radial-gradient(ellipse at 50% 43%, rgba(255,255,255,.32), transparent 46%),
+        #ffe89a;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page { width: min(100%, 430px); margin: 0 auto; }
+    .brand {
+      display: block; width: fit-content; margin: 0 auto 28px;
+      padding-top: 3px; text-decoration: none;
+      font-size: clamp(31px, 8vw, 43px); font-weight: 1000;
+      font-style: italic; letter-spacing: -2px; line-height: 1.12;
+      color: #0878ed; -webkit-text-stroke: 1px #071d38;
+      text-shadow: 2px 3px 0 #071d38, 4px 5px 0 #d5a900;
+    }
+    .hero {
+      overflow: hidden; border-radius: 18px; background: #030303;
+      border: 1px solid rgba(255,255,255,.7);
+      box-shadow: 0 0 0 2px rgba(0,0,0,.16), 0 7px 20px rgba(0,0,0,.32);
+      padding: 15px 10px 17px;
+    }
+    .poster {
+      min-height: 260px; position: relative; overflow: hidden;
+      border: 2px solid #dce6d8; border-radius: 12px;
+      background:
+        radial-gradient(ellipse at 76% 27%, rgba(0,134,255,.75), transparent 30%),
+        radial-gradient(ellipse at 17% 88%, rgba(5,87,154,.55), transparent 40%),
+        linear-gradient(135deg, #071629 0%, #030609 54%, #092d55 100%);
+      box-shadow: 0 0 12px rgba(221,255,213,.65), inset 0 0 20px #000;
+      padding: 14px 12px 12px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .poster:before {
+      content: ""; position: absolute; width: 170px; height: 240px;
+      right: -32px; top: 20px; transform: rotate(15deg);
+      border-radius: 48% 48% 22% 22%;
+      background: linear-gradient(110deg, #b6784d, #f2c09a 36%, #241a1c 38%, #10151c 72%, #ad7449);
+      opacity: .78; filter: drop-shadow(-8px 4px 8px #000);
+    }
+    .poster:after {
+      content: ""; position: absolute; width: 105px; height: 115px;
+      right: 3px; top: 12px; border-radius: 48% 48% 43% 43%;
+      background:
+        radial-gradient(ellipse at 48% 58%, #171313 0 34%, transparent 35%),
+        radial-gradient(ellipse at 53% 42%, #d49b78 0 38%, #1a1517 40% 54%, transparent 56%);
+      transform: rotate(8deg);
+      filter: drop-shadow(0 4px 5px #000);
+    }
+    .poster-content { position: relative; z-index: 1; max-width: 75%; }
+    .mini-logo {
+      color: #0787ff; font-weight: 1000; font-size: clamp(20px, 5vw, 27px);
+      font-style: italic; letter-spacing: -1.4px; line-height: 1;
+      text-shadow: 2px 2px #000, -1px -1px #d9e9ff;
+    }
+    .eyebrow { font-size: 9px; font-weight: 800; letter-spacing: 1px; margin: 6px 0 4px; }
+    .poster h1 {
+      text-transform: uppercase; margin: 0; font-size: clamp(22px, 5.8vw, 30px);
+      font-weight: 1000; line-height: .93; letter-spacing: -.8px;
+      text-shadow: 2px 3px 3px #000;
+    }
+    .poster h1 span { color: var(--gold); }
+    .features { display: grid; gap: 7px; margin-top: 15px; }
+    .feature { display: flex; align-items: center; gap: 7px; font-size: 9px; line-height: 1.25; }
+    .feature-icon {
+      display: grid; place-items: center; width: 23px; height: 23px; flex: 0 0 23px;
+      color: #0755a4; background: white; border-radius: 6px; font-size: 14px;
+    }
+    .feature b { display: block; color: #fff; font-size: 9px; margin-bottom: 1px; }
+    .feature small { display: block; color: #cbd8e6; font-size: 7px; }
+    .poster-footer {
+      position: relative; z-index: 2; margin-top: 12px; padding: 7px 6px;
+      border-radius: 7px; display: flex; align-items: center; justify-content: space-around;
+      gap: 4px; background: linear-gradient(90deg, #ffd72d, #f8ba16 42%, #0b2846 43%);
+      color: #fff; font-size: 7px; font-weight: 800; text-align: center;
+    }
+    .poster-footer span:first-child { color: #111; }
+    .tiny-line { position: relative; z-index: 1; text-align: center; font-size: 6px; color: #bfc7ce; margin-top: 7px; }
+    .headline { margin: 13px 0 0; text-align: center; line-height: 1.1; }
+    .headline strong {
+      display: inline-block; color: #ffe04c; font-size: clamp(19px, 5vw, 24px);
+      font-weight: 1000; letter-spacing: -.7px; text-shadow: 1px 2px #3a2c00;
+    }
+    .headline strong span { color: #fff; }
+    .pill {
+      display: table; margin: 4px auto 0; padding: 3px 12px;
+      background: #0780ee; color: white; border-radius: 20px;
+      font-weight: 900; font-size: 15px; box-shadow: 0 2px 0 #00478e;
+    }
+    .tagline {
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      text-align: center; margin: 12px auto 0; max-width: 290px;
+      font-size: 11px; line-height: 1.8;
+    }
+    .tagline:before {
+      content: "ϟ"; display: grid; place-items: center; flex: 0 0 35px; height: 48px;
+      border-left: 2px solid var(--gold-light); border-radius: 50%;
+      color: var(--gold); font-size: 19px;
+    }
+    .tagline b {
+      display: inline-block; padding: 0 7px; border-radius: 10px;
+      background: #ffe36c; color: #111; line-height: 1.5;
+    }
+    .legal {
+      margin-top: 14px; padding-top: 11px; border-top: 1px solid #333;
+      text-align: center; color: #e6e6e6; font-size: 9px;
+    }
+    .legal b { color: #1386ff; }
+    .quick-info {
+      margin: 16px 0 10px; border-radius: 24px; padding: 8px 10px;
+      background: rgba(83,69,23,.43); color: white; text-align: center;
+      font-size: 11px; font-weight: 700; text-shadow: 0 1px 2px #77621c;
+    }
+    .actions {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      padding: 9px 10px 12px; background: rgba(0,0,0,.58);
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 -4px 16px rgba(0,0,0,.2);
+    }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; min-height: 44px;
+      border-radius: 30px; border: 1px solid rgba(255,255,255,.45);
+      color: white; font-weight: 900; font-size: 14px; text-decoration: none;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+    .btn-login { color: #111; background: linear-gradient(#ffe76a, #f5d23d); box-shadow: 0 3px 12px #f8d13c44; }
+    .btn-register { background: linear-gradient(#087fee, #005bb9); box-shadow: 0 3px 12px #007bff55; }
+    .notice { color: #554719; font-size: 10px; text-align: center; margin: 12px 4px 0; }
+    @media (min-width: 600px) {
+      body { padding-top: 10px; }
+      .page { width: 430px; }
+      .brand { margin-bottom: 30px; }
+    }
+    @media (max-width: 360px) {
+      .hero { padding: 10px 8px 13px; }
+      .poster { min-height: 245px; padding: 12px 9px 10px; }
+      .poster:before { right: -53px; }
+      .poster:after { right: -12px; }
+      .feature { font-size: 8px; }
+      .actions { padding-inline: 7px; }
+      .btn { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="brand" href="#" aria-label="Fanatik99 beranda">Fanatik99</a>
+
+    <section class="hero" aria-label="Informasi Fanatik99">
+      <div class="poster">
+        <div class="poster-content">
+          <div class="mini-logo">Fanatik<span style="color:#ffdb35">99</span></div>
+          <div class="eyebrow">PLATFORM PILIHAN UNTUK</div>
+          <h1>Penggemar<br>Game <span>Fanatik</span></h1>
+          <div class="features">
+            <div class="feature"><div class="feature-icon">🎮</div><div><b>BERAGAM PILIHAN GAME</b><small>Akses pilihan hiburan dari satu tempat</small></div></div>
+            <div class="feature"><div class="feature-icon">📱</div><div><b>AKSES MUDAH</b><small>Nyaman di desktop &amp; mobile</small></div></div>
+            <div class="feature"><div class="feature-icon">⚡</div><div><b>ANTARMUKA SEDERHANA</b><small>Navigasi yang praktis dan jelas</small></div></div>
+            <div class="feature"><div class="feature-icon">✓</div><div><b>INFORMASI TRANSPARAN</b><small>Baca ketentuan sebelum menggunakan layanan</small></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="poster-footer"><span>🚀 GABUNG SEKARANG!</span><span>⚡ AKSES PRAKTIS</span><span>◈ INFO LAYANAN</span></div>
+          <div class="tiny-line">FANATIK99　•　PLATFORM UNTUK PENGGEMAR GAME</div>
+        </div>
+      </div>
+
+      <div class="headline"><strong>FANATIK99: <span>Platform Pilihan</span></strong></div>
+      <div class="pill">Penggemar Fanatik Game</div>
+      <div class="tagline"><div>Pengalaman bermain <b>modern</b>, <b>cepat</b>, <b>stabil</b> dan mudah diakses.</div></div>
+      <div class="legal">© All Rights Reserved · <b>FANATIK99</b> · Informasi &amp; ketentuan layanan</div>
+    </section>
+
+    <div class="quick-info">✦ Akses praktis &amp; informasi layanan ✦</div>
+    <nav class="actions" aria-label="Menu akun">
+      <a class="btn btn-login" href="https://fantik99.com/akzg" id="loginButton">LOGIN</a>
+      <a class="btn btn-register" href="https://fantik99.com/akzg" id="registerButton">DAFTAR</a>
+    </nav>
+    <p class="notice">LOGIN dan DAFTAR akan membuka tujuan berikut: <strong>fantik99.com/akzg</strong>.</p>
+  </main>
+</body>
+</html>
